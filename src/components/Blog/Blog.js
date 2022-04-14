@@ -41,13 +41,12 @@ const Blog = () => {
         }
     }
 
-
     return (
         <div>
             <div className="p-5 bg-light">
                 <h1>Our Latest Posts</h1>
             </div>
-            <div className="container-fluid mt-5 px-5">
+            <div className="container-fluid my-5 px-5">
                 <div className="row">
                     <div className="col-8">
                         {posts && posts.length > 0 ? posts.map(post => {
@@ -58,7 +57,7 @@ const Blog = () => {
                                     </div>
                                     <div className="d-flex justify-content-center">
                                         <div className="text-center p-4 rounded" style={{ position: "relative", width: "80%", bottom: "4em", backgroundColor: "white" }}>
-                                            <Link to={"/blog/"+post.title} style={{textDecoration: "none", color: "black"}}><h2>{post.title}</h2></Link>
+                                            <Link to={"/blog/"+post.slug} style={{textDecoration: "none", color: "black"}}><h2>{post.title}</h2></Link>
                                             <p>{post.excerpt}</p>
                                             <Tags post={post}/>
                                         </div>
@@ -83,12 +82,12 @@ const Blog = () => {
                                     </div>
                                     :
                                     null}
-                                < div className="d-flex justify-content-center mb-5">
+                                < div className="d-flex justify-content-center">
                                     <button type="button" className="btn btn-primary" onClick={() => fetchMorePosts()}>Load More</button>
                                 </div>
                             </div>
+                            
                         }
-
                     </div>
                     <div className="col-4">
                         <Comments />
